@@ -16,7 +16,6 @@ irb(main):002:0> client.add "[001]DB101DW015"
 
 irb(main):003:0> client.read
 => [{:tag=>"[001]DB101DW015", :value=>42, :quality=>"Good", :timestamp=>2018-09-24 16:32:37 +0200}] 
- 
 ``` 
 
 Change the server and node parameters to your OPC server's settings in the example above.
@@ -27,8 +26,13 @@ Change the server and node parameters to your OPC server's settings in the examp
 ```
 $ gem build ropc.gemspec
 $ gem install ropc-0.0.1.gem
-
 ``` 
+
+or download directly:
+
+```
+$ gem install ropc
+```
 
 ## Prerequisites
 
@@ -53,44 +57,44 @@ $ gem install ropc-0.0.1.gem
 
 * Install sinatra and the puma webserver (optional but recommended): 
 
-```gem install sinatra```
+        ```gem install sinatra```
 
-```gem install puma```
+        ```gem install puma```
 
 * Set the environment variables: 
 
- ```ROPC_SERVER="INAT TcpIpH1 OPC Server"```
- and
- ```ROPC_NODE="10.100.100.100"```
+         ```ROPC_SERVER="INAT TcpIpH1 OPC Server"```
+         and
+         ```ROPC_NODE="10.100.100.100"```
  
 * Start the webservice with rackup: 
 
-```rackup -Ilib```
+        ```rackup -Ilib```
 
 * From another console, add some tags with a POST request:
 
-```curl -X POST localhost:3000/tags/[001]DB101DW015```
+        ```curl -X POST localhost:3000/tags/[001]DB101DW015```
 
  * Read tags:
  
- ```curl -X GET localhost:3000/tags/[001]DB101DW015```
- or 
- ```curl -X GET localhost:3000/tags```
- 
+         ```curl -X GET localhost:3000/tags/[001]DB101DW015```
+         or 
+         ```curl -X GET localhost:3000/tags```
+         
  * Response will be in JSON:
  
- ```
- [
-  {
-    "tag": "[001]DB101DW015",
-    "value": 44,
-    "quality": "Good",
-    "timestamp": "2018-09-24 16:58:32 +0200"
-  }
- ]
- ```
+         ```
+         [
+          {
+            "tag": "[001]DB101DW015",
+            "value": 44,
+            "quality": "Good",
+            "timestamp": "2018-09-24 16:58:32 +0200"
+          }
+         ]
+        ```
  
  * Delete tag:
  
- ```curl -X DELETE localhost:3000/tags/[001]DB101DW015```
+        ```curl -X DELETE localhost:3000/tags/[001]DB101DW015```
 

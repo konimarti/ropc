@@ -57,33 +57,32 @@ $ gem install ropc
 
 * Install sinatra and the puma webserver (optional but recommended): 
 
-        ```gem install sinatra```
+        gem install sinatra
 
-        ```gem install puma```
+        gem install puma
 
 * Set the environment variables: 
 
-         ```ROPC_SERVER="INAT TcpIpH1 OPC Server"```
-         and
-         ```ROPC_NODE="10.100.100.100"```
+        ROPC_SERVER="INAT TcpIpH1 OPC Server"
+  and
+        ROPC_NODE="10.100.100.100"
  
 * Start the webservice with rackup: 
 
-        ```rackup -Ilib```
+        rackup -Ilib
 
 * From another console, add some tags with a POST request:
 
-        ```curl -X POST localhost:3000/tags/[001]DB101DW015```
+        curl -X POST localhost:3000/tags/[001]DB101DW015
 
  * Read tags:
  
-         ```curl -X GET localhost:3000/tags/[001]DB101DW015```
-         or 
-         ```curl -X GET localhost:3000/tags```
+        curl -X GET localhost:3000/tags/[001]DB101DW015
+   or 
+        curl -X GET localhost:3000/tags
          
  * Response will be in JSON:
  
-         ```
          [
           {
             "tag": "[001]DB101DW015",
@@ -92,9 +91,8 @@ $ gem install ropc
             "timestamp": "2018-09-24 16:58:32 +0200"
           }
          ]
-        ```
  
  * Delete tag:
  
-        ```curl -X DELETE localhost:3000/tags/[001]DB101DW015```
+        curl -X DELETE localhost:3000/tags/[001]DB101DW015
 
